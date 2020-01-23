@@ -7,7 +7,7 @@ class CreateTasks < ActiveRecord::Migration[5.2]
       t.date :due_date
       t.boolean :remote_job
       t.string :location
-      t.references :user, foreign_key: true
+      # t.references :user, foreign_key: true
 
       t.timestamps
     end
