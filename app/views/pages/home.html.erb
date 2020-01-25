@@ -6,7 +6,7 @@
           <div class="row d-flex justify-content-center mt-2">
             <div class="avatar mb-4" style="background-color: gray; height: 150px; width: 150px"></div>
           </div>
-          <h5 class="card-title">Welcome #{Username}!</h5>
+          <h5 class="card-title">Welcome <%= @user.email %></h5>
           <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
           <a href="#" class="btn btn-sm btn-primary">Go somewhere</a>
         </div>
@@ -16,13 +16,13 @@
 <!-- This is a loop to create the cards for each task -->
 
     <div class="col-8 d-flex flex-wrap justify-content-around">
-        <% 21.times do %>
+        <% @tasks.each do |task| %>
           <%= '<div class="card mb-4" style="width: 14rem;">'.html_safe %>
             <%#= '<img class="card-img-top" src="logo.png" alt="Card image cap">'.html_safe %>
             <%= '<div style="background-color:gray; width: 100%; height: 150px;"></div>'.html_safe %>
             <%= '<div class="card-body">'.html_safe %>
-            <%= '  <h5 class="card-title">Card title</h5>'.html_safe %>
-            <%= '  <p class="card-text">$$Price. See details</p>'.html_safe %>
+            <h5 class="card-title"> <%= task.title %> </h5>
+            <p class="card-text"> <%= task.description[1..100] %> </p>
             <%= '</div>'.html_safe %>
            <%= '</div>'.html_safe %>
         <% end %>
