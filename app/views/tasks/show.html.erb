@@ -1,0 +1,33 @@
+
+<div class="container">
+  <div class="row mt-5 d-flex">
+    <div class="col-4">
+      <div class="card" style="height: 350px;">
+        <div class="card-body">
+          <h2 class="card-title"><%= @task.description.capitalize %></h2>
+          <h3 class="card-title">$<%= @task.price %></h3>
+          <p>This is some placeholder text to show a longer task description for Task # <%= @task.id %>.</p>
+          <a href="#" class="btn btn-sm btn-primary">Make an offer</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-8" style="background-color: gray; height: 350px; width: 100%">Task Picture Goes Here</div>
+  </div>
+  <div class="row mt-5 d-flex">
+    <div class="col-12" style="background-color: gray; height: 350px;">Task Details Go Here</div>
+  </div>
+</div>
+
+<!-- This is a loop to create the cards for each task -->
+<!-- <div class="col-4">
+  <div class="card sticky-top" style="height: 50vh;">
+    <div class="card-body d-flex flex-column align-items-center">
+      <div class="row d-flex flex-column justify-content-center mt-2">
+      <h5 class="card-title"><%= @task.description.capitalize %></h5>
+      <p class="card-text"><%= @task.description.capitalize %></p>
+      <a href="#" class="btn btn-sm btn-primary">Make an offer</a>
+    </div>
+  </div>
+</div>
+</div>
+ -->
