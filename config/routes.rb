@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   post 'tasks/:id/offers', to: 'offers#create', as: 'task_offers'
 
+  get 'tasks/:id/offers', to: 'offers#success', as: 'offers_success'
+
   get 'dashboard', to: 'pages#dashboard'
 
   get 'tasks/:id', to: 'tasks#show', as: 'task'
