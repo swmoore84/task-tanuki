@@ -6,7 +6,7 @@
           <div class="row d-flex justify-content-center mt-2">
             <div class="avatar mb-4" style="background-color: gray; height: 150px; width: 150px"></div>
           </div>
-          <h5 class="card-title">Welcome <%= @user.email %></h5>
+          <h5 class="card-title">Welcome <%= (@user? @user.email : "Guest") %></h5>
           <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
           <a href="#" class="btn btn-sm btn-primary">Go somewhere</a>
         </div>
