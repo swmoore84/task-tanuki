@@ -7,7 +7,14 @@
           <h2 class="card-title"><%= @task.description.capitalize %></h2>
           <h3 class="card-title">$<%= @task.price %></h3>
           <p>This is some placeholder text to show a longer task description for Task # <%= @task.id %>.</p>
-          <a href="#" class="btn btn-sm btn-primary">Make an offer</a>
+
+
+          <%= simple_form_for [@task, @offer] do |f| %>
+            <%= f.button :submit, { class: "btn btn-primary" } %>
+          <% end %>
+
+
+
         </div>
       </div>
     </div>
@@ -31,3 +38,5 @@
 </div>
 </div>
  -->
+
+

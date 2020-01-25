@@ -5,6 +5,7 @@ class TasksController < ApplicationController
 
   def show
     @task = Task.find(params[:id])
+    @offer = Offer.new
   end
 
   def new
