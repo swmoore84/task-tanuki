@@ -22,7 +22,7 @@ admin = User.new(email: "admin@gmail.com", password: "lewagon")
         due_date: Faker::Date.in_date_period(month: 2),
         remote_job: true,
         location: Faker::Address.street_address,
-        title: Faker::Marketing.buzzwords
+        title: Faker::Marketing.buzzwords.capitalize!
       )
 end
 
@@ -35,7 +35,7 @@ end
         due_date: Faker::Date.in_date_period(month: 2),
         remote_job: true,
         location: Faker::Address.street_address,
-        title: Faker::Marketing.buzzwords
+        title: Faker::Marketing.buzzwords.capitalize!
       )
 end
 
@@ -48,7 +48,7 @@ end
         due_date: Faker::Date.in_date_period(month: 2),
         remote_job: true,
         location: Faker::Address.street_address,
-        title: Faker::Marketing.buzzwords
+        title: Faker::Marketing.buzzwords.capitalize!
       )
 end
 
@@ -61,7 +61,7 @@ end
         due_date: Faker::Date.in_date_period(month: 2),
         remote_job: true,
         location: Faker::Address.street_address,
-        title: Faker::Marketing.buzzwords
+        title: Faker::Marketing.buzzwords.capitalize!
       )
 end
 
@@ -74,7 +74,7 @@ end
         due_date: Faker::Date.in_date_period(month: 2),
         remote_job: true,
         location: Faker::Address.street_address,
-        title: Faker::Marketing.buzzwords
+        title: Faker::Marketing.buzzwords.capitalize!
       )
 end
 
