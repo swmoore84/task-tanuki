@@ -9,53 +9,73 @@ require 'faker'
 
 user1 = User.new(email: "user1@gmail.com", password: "lewagon")
 user2 = User.new(email: "user2@gmail.com", password: "lewagon")
-user3 = User.new(email: "admin@gmail.com", password: "lewagon")
+user3 = User.new(email: "user3@gmail.com", password: "lewagon")
+user4 = User.new(email: "user4@gmail.com", password: "lewagon")
+admin = User.new(email: "admin@gmail.com", password: "lewagon")
 
 5.times do
     Task.create!( 
         user: user1,
-        description: Faker::Marketing.buzzwords,
+        description: Faker::Hipster.paragraph,
         category: Faker::Job.field ,
         price: Faker::Number.number(digits: 2),
         due_date: Faker::Date.in_date_period(month: 2),
         remote_job: true,
-        location: Faker::Address.street_address
+        location: Faker::Address.street_address,
+        title: Faker::Marketing.buzzwords
       )
 end
 
-5.times do
+4.times do
     Task.create!( 
         user: user2,
-        description: Faker::Marketing.buzzwords,
+        description: Faker::Hipster.paragraph,
         category: Faker::Job.field ,
         price: Faker::Number.number(digits: 2),
         due_date: Faker::Date.in_date_period(month: 2),
         remote_job: true,
-        location: Faker::Address.street_address
+        location: Faker::Address.street_address,
+        title: Faker::Marketing.buzzwords
       )
 end
 
-5.times do
+7.times do
     Task.create!( 
         user: user3,
-        description: Faker::Marketing.buzzwords,
+        description: Faker::Hipster.paragraph,
         category: Faker::Job.field ,
         price: Faker::Number.number(digits: 2),
         due_date: Faker::Date.in_date_period(month: 2),
         remote_job: true,
-        location: Faker::Address.street_address
+        location: Faker::Address.street_address,
+        title: Faker::Marketing.buzzwords
       )
 end
 
+10.times do
+    Task.create!( 
+        user: user4,
+        description: Faker::Hipster.paragraph,
+        category: Faker::Job.field ,
+        price: Faker::Number.number(digits: 2),
+        due_date: Faker::Date.in_date_period(month: 2),
+        remote_job: true,
+        location: Faker::Address.street_address,
+        title: Faker::Marketing.buzzwords
+      )
+end
 
+2.times do
+    Task.create!( 
+        user: admin,
+        description: Faker::Hipster.paragraph,
+        category: Faker::Job.field ,
+        price: Faker::Number.number(digits: 2),
+        due_date: Faker::Date.in_date_period(month: 2),
+        remote_job: true,
+        location: Faker::Address.street_address,
+        title: Faker::Marketing.buzzwords
+      )
+end
 
-# 5.times do
-#     User.create! ([
-#         {
-#            email: Faker::Internet.email,
-#            password: lewagon
-#         }
-#     ])
-
-# end
 
