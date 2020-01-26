@@ -1,0 +1,21 @@
+<div class="container">
+  <div class="card col-6 d-flex mx-auto my-5">
+<!--     <div class="align-items-center justify-content-center"> -->
+    <div class="card-body">
+      <h3 class="card-title d-flex justify-content-center">Post a new task!</h3>
+      <%= simple_form_for [@task] do |f| %>
+        <%= f.input :title, label: 'Title', error: 'Username is mandatory, please specify one' %>
+        <%= f.input :category, label: 'Category', error: 'Username is mandatory, please specify one' %>
+        <%= f.input :description, label: 'Description', error: 'Username is mandatory, please specify one' %>
+        <%= f.input :price, label: 'Price', error: 'Username is mandatory, please specify one' %>
+        <%= f.input :remote_job, as: :radio_buttons %>
+        <%= f.input :location %>
+        <%= f.input :due_date %>
+        <div class="row mt-4 d-flex justify-content-around">
+          <%= f.button :submit, { class: "btn btn-primary" } %>
+          <%= link_to "Back to home", home_path, { class: "btn btn-primary" } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
