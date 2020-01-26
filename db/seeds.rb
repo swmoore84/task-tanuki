@@ -7,75 +7,74 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+puts 'Cleaning database...'
+User.destroy_all
+Task.destroy_all
+Offer.destroy_all
+
+puts 'Creating users...'
+
 user1 = User.new(email: "user1@gmail.com", password: "lewagon")
 user2 = User.new(email: "user2@gmail.com", password: "lewagon")
 user3 = User.new(email: "user3@gmail.com", password: "lewagon")
 user4 = User.new(email: "user4@gmail.com", password: "lewagon")
 admin = User.new(email: "admin@gmail.com", password: "lewagon")
 
+puts 'Users created...'
+
+puts 'Creating tasks...'
+
 5.times do
-    Task.create!( 
+    Task.create!(
         user: user1,
-        description: Faker::Hipster.paragraph,
-        category: Faker::Job.field ,
+        description: Faker::Books::Dune.quote,
+        category: Faker::Job.field,
         price: Faker::Number.number(digits: 2),
         due_date: Faker::Date.in_date_period(month: 2),
-        remote_job: true,
+        remote_job: false,
         location: Faker::Address.street_address,
-        title: Faker::Marketing.buzzwords.capitalize!
+        title: Faker::Marketing.buzzwords.capitalize
       )
 end
 
 4.times do
-    Task.create!( 
+    Task.create!(
         user: user2,
-        description: Faker::Hipster.paragraph,
-        category: Faker::Job.field ,
+        description: Faker::Books::Dune.quote,
+        category: Faker::Job.field,
         price: Faker::Number.number(digits: 2),
         due_date: Faker::Date.in_date_period(month: 2),
-        remote_job: true,
+        remote_job: false,
         location: Faker::Address.street_address,
-        title: Faker::Marketing.buzzwords.capitalize!
+        title: Faker::Marketing.buzzwords.capitalize
       )
 end
 
 7.times do
-    Task.create!( 
+    Task.create!(
         user: user3,
-        description: Faker::Hipster.paragraph,
-        category: Faker::Job.field ,
+        description: Faker::Books::Dune.quote,
+        category: Faker::Job.field,
         price: Faker::Number.number(digits: 2),
         due_date: Faker::Date.in_date_period(month: 2),
-        remote_job: true,
+        remote_job: false,
         location: Faker::Address.street_address,
-        title: Faker::Marketing.buzzwords.capitalize!
+        title: Faker::Marketing.buzzwords.capitalize
       )
 end
 
-10.times do
-    Task.create!( 
+5.times do
+    Task.create!(
         user: user4,
-        description: Faker::Hipster.paragraph,
-        category: Faker::Job.field ,
+        description: Faker::Books::Dune.quote,
+        category: Faker::Job.field,
         price: Faker::Number.number(digits: 2),
         due_date: Faker::Date.in_date_period(month: 2),
-        remote_job: true,
+        remote_job: false,
         location: Faker::Address.street_address,
-        title: Faker::Marketing.buzzwords.capitalize!
+        title: Faker::Marketing.buzzwords.capitalize
       )
 end
 
-2.times do
-    Task.create!( 
-        user: admin,
-        description: Faker::Hipster.paragraph,
-        category: Faker::Job.field ,
-        price: Faker::Number.number(digits: 2),
-        due_date: Faker::Date.in_date_period(month: 2),
-        remote_job: true,
-        location: Faker::Address.street_address,
-        title: Faker::Marketing.buzzwords.capitalize!
-      )
-end
-
+puts "Tasks created..."
 
