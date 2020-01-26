@@ -2,6 +2,7 @@
 <div class="container">
   <div class="row mt-5 d-flex">
     <div class="col-4">
+
       <div class="card" style="height: 350px;">
         <div class="card-body">
           <h2 class="card-title"><%= @task.title %></h2>
@@ -10,13 +11,12 @@
 
 
           <%= simple_form_for [@task, @offer] do |f| %>
-            <%= f.button :submit, { class: "btn btn-primary" } %>
+            <%= f.button :submit, 'Make an Offer!', { class: "btn btn-primary" } %>
           <% end %>
-
-
 
         </div>
       </div>
+
     </div>
     <div class="col-8" style="background-color: gray; height: 350px; width: 100%">Task Picture Goes Here</div>
   </div>
