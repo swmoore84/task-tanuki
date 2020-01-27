@@ -1,0 +1,99 @@
+<h1>My Requests</h1>
+
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Pending</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Active</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Complete</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    <% current_user.tasks.each do |task| %>
+      <h3><%= task.title %></h3><br>
+        <% if task.offers.count > 0 %>
+          <table class="table">
+            <tbody>
+              <% task.offers.each do |offer| %>
+                <% if offer.status == "pending" %>
+                  <tr>
+                    <td><%= offer.user.email %></td>
+                    <td>accept button</td>
+                  </tr>
+                <% end %>
+              <% end %>
+            </tbody>
+          </table>
+          <% else %>
+            <p>There are no offers for this task</p>
+        <% end %>
+    <% end %>
+  </div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+    <% @tasks.each do |task| %>
+      <% if task.offers.select {|offer| offer.status == "active"}.empty? %>
+        <p>There are no active tasks</p>
+        <% break %>
+      <% end %>
+      <% break %>
+    <% end %>
+    <% @tasks.each do |task| %>
+      <% if task.offers.select {|offer| offer.status == "active"}.length > 0 %>
+        <table class="table">
+          <tbody>
+            <% task.offers.each do |offer| %>
+              <% if offer.status == "active" %>
+                <tr>
+                  <td><%= task.title %></td>
+                  <td><%= offer.user.email %></td>
+                  <td>Mark as complete button</td>
+                </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    <% end %>
+
+  </div>
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+    <% @tasks.each do |task| %>
+      <% if task.offers.select {|offer| offer.status == "complete"}.empty? %>
+        <p>There are no complete tasks</p>
+        <% break %>
+      <% end %>
+      <% break %>
+    <% end %>
+    <% @tasks.each do |task| %>
+      <% if task.offers.select {|offer| offer.status == "complete"}.length > 0 %>
+        <table class="table">
+          <tbody>
+            <% task.offers.each do |offer| %>
+              <% if offer.status == "complete" %>
+                <tr>
+                  <td><%= task.title %></td>
+                  <td><%= offer.user.email %></td>
+                  <td>Mark as complete button</td>
+                </tr>
+              <% end %>
+            <% end %>
+          </tbody>
+        </table>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<h1>My Offers</h1>
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Pending</a>
+    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Active</a>
+    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Complete</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
+  <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+  <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+</div>
