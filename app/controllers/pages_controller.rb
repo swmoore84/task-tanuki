@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   def home
+    # page_params
     @tasks = Task.all
     @user = current_user
   end
@@ -7,4 +8,8 @@ class PagesController < ApplicationController
   def dashboard
     @tasks = current_user.tasks.all
   end
+
+  # def page_params
+  #   params.require(:user).permit(:photo)
+  # end
 end

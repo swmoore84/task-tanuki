@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_one_attached :photo
   has_many :tasks, dependent: :destroy
   has_many :offers, dependent: :destroy
   has_many :offers_as_owner, through: :tasks, source: :offers

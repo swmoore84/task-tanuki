@@ -4,7 +4,7 @@
       <div class="card sticky-top" style="height: 75vh;">
         <div class="card-body d-flex flex-column align-items-center">
           <div class="row d-flex justify-content-center mt-2">
-            <div class="avatar mb-4" style="background-color: gray; height: 150px; width: 150px"></div>
+            ; <div class="avatar mb-4" style="background-color: gray; height: 150px; width: 150px"> <%= cl_image_tag  "default_avatar" , :aspect_ratio=>"1:1", :border=>"5px_solid_rgb:ff0000", :gravity=>"face", :radius=>"max", :width=>150, :crop=>"fill" %> </div>
           </div>
           <h5 class="card-title">Welcome <%= (@user? @user.email : "Guest") %></h5>
           <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
