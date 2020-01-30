@@ -1,0 +1,17 @@
+.btn {
+  background-color: #2CC185;
+  // color: #323232;
+  color: white;
+  border: 1px solid #57b278;
+  font-family: 'Nunito Sans';
+}
+
+.btn:hover {
+  background-color: #57b278;
+  border: 1px solid #57b278;
+}
+
+.btn:active {
+  position:relative;
+  top:1px;
+}
