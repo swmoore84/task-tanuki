@@ -24,7 +24,7 @@ puts 'Users created...'
 
 puts 'Creating tasks...'
 
-5.times do
+3.times do |index|
     Task.create!(
         user: user1,
         description: Faker::Books::Dune.quote,
@@ -37,7 +37,7 @@ puts 'Creating tasks...'
       )
 end
 
-4.times do
+3.times do |index|
     Task.create!(
         user: user2,
         description: Faker::Books::Dune.quote,
@@ -50,7 +50,7 @@ end
       )
 end
 
-7.times do
+3.times do |index|
     Task.create!(
         user: user3,
         description: Faker::Books::Dune.quote,
@@ -63,7 +63,7 @@ end
       )
 end
 
-5.times do
+3.times do |index|
     Task.create!(
         user: user4,
         description: Faker::Books::Dune.quote,
@@ -78,3 +78,12 @@ end
 
 puts "Tasks created..."
 
+
+puts 'Creating users...'
+
+offer1 = Offer.new(user: user2, task: Task.first)
+offer2 = Offer.new(user: user3, task: Task.first)
+offer3 = Offer.new(user: user4, task: Task.first)
+offer1.save!
+offer2.save!
+offer3.save!
