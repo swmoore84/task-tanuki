@@ -1,3 +1,4 @@
+<% require 'faker' %>
 
 <div class="container">
   <div class="row mt-5 d-flex justify-content-center">
@@ -7,7 +8,8 @@
         <div class="card-body">
           <h2 class="card-title" id="show-title"><%= @task.title %></h2>
           <h3 class="card-title" id="show-title">$<%= @task.price %></h3>
-          <p id="show-description"><%= @task.description %></p>
+          <p id="show-description"><%= @task.category %></p>
+          <p id="show-description"><%= @task.location %></p>
 
 
           <%= simple_form_for [@task, @offer] do |f| %>
@@ -25,7 +27,7 @@
   <div class="row mt-4 mb-5 d-flex justify-content-center align-items-center">
     <div class="card col-10 p-5" style="height: 350px;">
       <h2 class="card-title" id="show-title">Details</h2>
-      <p id="show-description"><%= (@task.description + "  " ) * 5 %></p>
+      <p id="show-description"><%= @task.description %></p>
     </div>
   </div>
 </div>
