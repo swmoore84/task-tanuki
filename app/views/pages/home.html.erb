@@ -1,23 +1,31 @@
 <div class="container">
   <div class="row mt-5">
     <div class="col-4">
-      <div class="card sticky-top" style="height: 75vh;">
+      <div class="card sticky-top">
         <div class="card-body d-flex flex-column align-items-center">
           <div class="row d-flex justify-content-center mt-2">
-          <% if user_signed_in? %>
-             <div class="avatar mb-4" style="background-color: gray; height: 150px; width: 150px"> <%= cl_image_tag(current_user.photo.key, :aspect_ratio=>"1:1", :border=>"5px_solid_rgb:ff0000", :gravity=>"face", :radius=>"max", :width=>150, :crop=>"fill") if current_user.photo.attached? %> </div>
-             <h5 class="card-title">Welcome <%= (current_user.email) %></h5>
-          <% end %>
+            <% if user_signed_in? %>
+              <% if current_user.photo.attached? %>
+                <%= cl_image_tag(current_user.photo.key, :aspect_ratio=>"1:1", :border=>"5px_solid_rgb:ff0000", :gravity=>"face", :radius=>"max", :width=>150, :crop=>"fill") %>
+              <% else %>
+                <div class="avatar" id="tanuki"></div>
+              <% end %>
+              <div class="row my-2">
+                <div class="card-title" id="welcome">Welcome, <%= (current_user.email) %>!</div>
+              </div>
+              <div class="card-text mx-3">Welcome to <strong>Task Tanuki</strong>, the place to get your tasks done! </div>
+              <div class="row my-3 d-flex flex-column justify-content-around" style="height: 100px;">
+                <%= link_to "Post a Task!", new_task_path, { class: "btn" } %>
+                <%= link_to "Dashboard", dashboard_path, { class: "btn" } %>
+              </div>
+            <% else %>
+              <div class="row d-flex flex-column align-items-center">
+                <div class="card-title mb-3" id="welcome">Welcome to Task Tanuki!</div>
+                <%= image_tag "tanuki_icon.svg" %>
+                <%= link_to "Register an account!", new_user_registration_path, { class: "btn mt-3" } %>
+              </div>
+            <% end %>
           </div>
-          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-          <% if user_signed_in? %>
-            <div class="row d-flex flex-column justify-content-around" style="height: 100px;">
-              <%= link_to "My dashboard", dashboard_path, { class: "btn btn-outline-primary btn-sm" } %>
-              <%= link_to "Post a task!", new_task_path, { class: "btn btn-outline-primary btn-sm" } %>
-            </div>
-          <% else %>
-            <%= link_to "Register an account!", new_user_registration_path, { class: "btn btn-primary" } %>
-          <% end %>
         </div>
       </div>
     </div>
@@ -26,7 +34,7 @@
 
     <div class="col-8 d-flex flex-wrap justify-content-around">
         <% @tasks.each do |task| %>
-          <%= link_to task_path(task), {style: "text-decoration:none"} do %>
+          <%= link_to task_path(task) do %>
           <%= '<div class="card mb-4" style="width: 14rem;">'.html_safe %>
             <div>
               <img class='card-img-top' src="https://images.unsplash.com/3/doctype-hi-res.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1046&q=80" alt="">
@@ -34,7 +42,7 @@
 
             <%= '<div class="card-body">'.html_safe %>
               <h5 class="card-title"> <%= task.title %> </h5>
-              <p class="card-text"> <%= task.description[0..70] %>... </p>
+              <p class="card-text"> <%= task.description[0..50] %>... </p>
             <%= '</div>'.html_safe %>
           <%= '</div>'.html_safe %>
           <% end %>
