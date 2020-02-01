@@ -15,7 +15,7 @@
               </div>
               <div class="card-text mx-3">Welcome to <strong>Task Tanuki</strong>, the place to get your tasks done! </div>
               <div class="row my-3 d-flex flex-column justify-content-around" style="height: 100px;">
-                <%= link_to "Post a Task!", new_task_path, { class: "btn" } %>
+                <%= link_to '<i class="fas fa-plus"></i>&nbsp&nbspPost a Task!'.html_safe, new_task_path, { class: "btn" } %>
                 <%= link_to "Dashboard", dashboard_path, { class: "btn" } %>
               </div>
             <% else %>
