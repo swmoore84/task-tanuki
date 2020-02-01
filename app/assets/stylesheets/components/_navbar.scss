@@ -1,36 +1,62 @@
-.navbar {
+.nav {
+  display: flex;
+  position: fixed;
   justify-content: space-between;
-  background: white;
-  border-bottom: 1px solid #c9c9c9;
+  align-items: center;
+  z-index: 1;
+  background-color: white;
+  width: 100vw;
+  transition: 0.1s background-color ease;
+  border-bottom: 1px solid rgba(230,230,230,1);
+  visibility: hidden;
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
+.nav-other {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  width: 100vw;
+  border-bottom: 1px solid rgba(230,230,230,1);
 }
 
-.navbar-lewagon .navbar-brand img {
-  width: 150px;
+.nav-opaque {
+  visibility: visible;
+}
+
+.nav-brand {
+  margin-left: 5vw;
+}
+.nav-brand img {
+  width: 200px;
+  margin: 5px 0px;
+}
+
+.nav-controls {
+  display: flex;
+  margin-right: 5vw;
 }
 
 #navbar-btn {
-  background-color: white;
+  background-color: transparent;
   border: none;
   color: #2CC185;
 }
 
 #navbar-btn:hover {
-  color: #323232;
+  color: white;
 }
 
 #navbar-btn:active {
   color: #323232;
 }
 
-.dropdown-item {
-
+#navbar-btn-log {
+  background-color: transparent;
+  color: #2CC185;
 }
 
-#navbar-btn-log {
-  background-color: white;
+#navbar-btn-log:hover {
+  border: white;
   color: #2CC185;
 }
