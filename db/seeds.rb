@@ -8,9 +8,9 @@
 require 'faker'
 
 puts 'Cleaning database...'
-User.destroy_all
-Task.destroy_all
 Offer.destroy_all
+Task.destroy_all
+User.destroy_all
 
 puts 'Creating users...'
 
