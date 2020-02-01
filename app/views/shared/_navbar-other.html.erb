@@ -1,10 +1,10 @@
-<div class="nav-other">
-  <div class="nav-logo">
-    <%= link_to home_path, class: "nav-brand" do %>
+<div class="nvbr-other">
+  <div class="nvbr-logo">
+    <%= link_to home_path, class: "nvbr-brand" do %>
       <%= image_tag "words_logo.svg" %>
     <% end %>
   </div>
-  <div class="nav-controls">
+  <div class="nvbr-controls">
     <% if user_signed_in? %>
       <%= link_to "Home", home_path, class: "btn mx-2", id: "navbar-btn" %>
       <%= link_to "Dashboard", dashboard_path, class: "btn mx-2", id: "navbar-btn" %>
