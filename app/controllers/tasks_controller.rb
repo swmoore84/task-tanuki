@@ -30,6 +30,12 @@ class TasksController < ApplicationController
   end
 
   def destroy
+    @task = Task.find(params[:id])
+    @task.offers.where(status: "pending").each do |offer|
+      offer.update(status: "declined")
+    end
+    @task.destroy
+    redirect_to dashboard_path
   end
 
   private

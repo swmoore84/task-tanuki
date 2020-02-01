@@ -12,7 +12,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   def pending_tasks
-    tasks.joins(:offers).where(offers: { status: "pending" })
+    tasks.joins(:offers).where(offers: { status: "pending" }).distinct
   end
 
   def pending_tasks?

@@ -25,13 +25,18 @@
                   <thead class="thead-light">
                     <tr>
                       <th scope="col"> <h5> <%= task.title %> </h5></th>
+                      <th>
+                        <%= link_to task_path(task), method: :delete, data: { confirm: "Delete this task?" } do %>
+                              <i class='far fa-trash-alt'></i>
+                        <% end %>
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
                     <% task.offers.each do |offer| %>
                     <tr class="d-flex justify-content-between">
                       <td><%= offer.user.email %></td>
-                      <td><div class="btn btn-primary">Accept</div></td>
+                      <td><%= link_to "Accept", accept_offer_path(offer), method: :patch %></td>
                     </tr>
                     <tr>
                     <% end %>
@@ -45,6 +50,11 @@
                   <thead class="thead-light">
                     <tr>
                       <th scope="col"> <h5> <%= task.title %> </h5></th>
+                      <th>
+                        <%= link_to task_path(task), method: :delete, data: { confirm: "Delete this task?" } do %>
+                              <i class='far fa-trash-alt'></i>
+                        <% end %>
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -76,7 +86,7 @@
                           <tr>
                             <td><%= task.title %></td>
                             <td><%= offer.user.email %></td>
-                            <td><div class="btn btn-primary">Complete</div></td>
+                            <td><%= link_to "Complete", mark_complete_path(offer), method: :patch %></td>
                           </tr>
                         <% end %>
                       <% end %>
@@ -105,7 +115,6 @@
                           <tr>
                             <td><%= task.title %></td>
                             <td><%= offer.user.email %></td>
-                            <td>Mark as complete button</td>
                           </tr>
                         <% end %>
                       <% end %>
@@ -120,81 +129,97 @@
 
 <!-- THIS IS THE 'MY OFFERS ON OTHER TASKS' CARD -->
 
-    <div class="col-6">
-      <div class="card p-5">
+      <div class="col-6">
+        <div class="card p-5">
 
-        <div class="mb-3"><h2>My Offers on Other Tasks</h2></div>
+          <div class="mb-3"><h2>My Offers on Other Tasks</h2></div>
 
-          <nav>
-            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-              <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home2" role="tab" aria-controls="nav-home" aria-selected="true">Pending</a>
-              <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile2" role="tab" aria-controls="nav-profile" aria-selected="false">Active</a>
-              <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact2" role="tab" aria-controls="nav-contact" aria-selected="false">Complete</a>
-            </div>
-          </nav>
-          <div class="tab-content" id="nav-tabContent">
-            <div class="tab-pane fade show active" id="nav-home2" role="tabpanel" aria-labelledby="nav-home-tab">
-              <% if current_user.offers.where(status: "pending").count == 0 %>
-                <p>You have no pending offers</p>
-              <% else %>
-                <% current_user.offers.each do |offer| %>
-                  <table class="table">
-                    <tbody>
-                      <% if offer.status == "pending" %>
-                        <tr>
-                          <td><%= offer.task.title %></td>
-                          <td><%= offer.task.user.email %></td>
-                          <td><div class="btn btn-primary">Accept</div></td>
-                        </tr>
-                      <% end %>
-                    </tbody>
-                  </table>
+            <nav>
+              <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home2" role="tab" aria-controls="nav-home" aria-selected="true">Pending</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile2" role="tab" aria-controls="nav-profile" aria-selected="false">Active</a>
+                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact2" role="tab" aria-controls="nav-contact" aria-selected="false">Complete</a>
+                <a class="nav-item nav-link" id="nav-declined-tab" data-toggle="tab" href="#offer-declined" role="tab" aria-controls="nav-declined" aria-selected="false">Declined</a>
+              </div>
+            </nav>
+            <div class="tab-content" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-home2" role="tabpanel" aria-labelledby="nav-home-tab">
+                <% if current_user.offers.where(status: "pending").count == 0 %>
+                  <p>You have no pending offers</p>
+                <% else %>
+                  <% current_user.offers.each do |offer| %>
+                    <table class="table">
+                      <tbody>
+                        <% if offer.status == "pending" %>
+                          <tr>
+                            <td><%= offer.task.title %></td>
+                            <td><%= offer.task.user.email %></td>
+                            <td><div class="btn btn-primary">Accept</div></td>
+                          </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+                  <% end %>
                 <% end %>
-              <% end %>
-            </div>
-            <div class="tab-pane fade" id="nav-profile2" role="tabpanel" aria-labelledby="nav-home-tab">
-              <% if current_user.offers.where(status: "active").count == 0 %>
-                <p>You don't have any active offers</p>
-              <% else %>
-                <% current_user.offers.each do |offer| %>
-                  <table class="table">
-                    <tbody>
-                      <% if offer.status == "active" %>
-                        <tr>
-                          <td><%= offer.task.title %></td>
-                          <td><%= offer.task.user.email %></td>
-                          <td><div class="btn btn-primary">Accept</div></td>
-                        </tr>
-                      <% end %>
-                    </tbody>
-                  </table>
+              </div>
+              <div class="tab-pane fade" id="nav-profile2" role="tabpanel" aria-labelledby="nav-home-tab">
+                <% if current_user.offers.where(status: "active").count == 0 %>
+                  <p>You don't have any active offers</p>
+                <% else %>
+                  <% current_user.offers.each do |offer| %>
+                    <table class="table">
+                      <tbody>
+                        <% if offer.status == "active" %>
+                          <tr>
+                            <td><%= offer.task.title %></td>
+                            <td><%= offer.task.user.email %></td>
+                            <td><div class="btn btn-primary">Accept</div></td>
+                          </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+                  <% end %>
                 <% end %>
-              <% end %>
-            </div>
-            <div class="tab-pane fade show" id="nav-contact2" role="tabpanel" aria-labelledby="nav-home-tab">
-              <% if current_user.offers.where(status: "complete").count == 0 %>
-                <p>You haven't completed any tasks</p>
-              <% else %>
-                <% current_user.offers.each do |offer| %>
-                  <table class="table">
-                    <tbody>
-                      <% if offer.status == "complete" %>
-                        <tr>
-                          <td><%= offer.task.title %></td>
-                          <td><%= offer.task.user.email %></td>
-                          <td><div class="btn btn-primary">Accept</div></td>
-                        </tr>
-                      <% end %>
-                    </tbody>
-                  </table>
+              </div>
+              <div class="tab-pane fade show" id="nav-contact2" role="tabpanel" aria-labelledby="nav-home-tab">
+                <% if current_user.offers.where(status: "complete").count == 0 %>
+                  <p>You haven't completed any tasks</p>
+                <% else %>
+                  <% current_user.offers.each do |offer| %>
+                    <table class="table">
+                      <tbody>
+                        <% if offer.status == "complete" %>
+                          <tr>
+                            <td><%= offer.task.title %></td>
+                            <td><%= offer.task.user.email %></td>
+                          </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+                  <% end %>
                 <% end %>
-              <% end %>
+              </div>
+              <div class="tab-pane fade show" id="offer-declined" role="tabpanel" aria-labelledby="nav-home-tab">
+                <% if current_user.offers.where(status: "declined").count == 0 %>
+                  <p>You don't have any declined tasks</p>
+                <% else %>
+                  <% current_user.offers.each do |offer| %>
+                    <table class="table">
+                      <tbody>
+                        <% if offer.status == "declined" %>
+                          <tr>
+                            <td><%= offer.task.title %></td>
+                            <td><%= offer.task.user.email %></td>
+                          </tr>
+                        <% end %>
+                      </tbody>
+                    </table>
+                  <% end %>
+                <% end %>
+              </div>
             </div>
-          </div>
+        </div>
       </div>
-    </div>
-
-
       </div>
     </div>
   </div>
