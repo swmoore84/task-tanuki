@@ -13,6 +13,8 @@ class TasksController < ApplicationController
   end
 
   def edit
+    @task = Task.find(params[:id])
+    @user = current_user
   end
 
   def create
@@ -27,6 +29,15 @@ class TasksController < ApplicationController
   end
 
   def update
+    @task = Task.new(task_params)
+    @user = current_user
+    @task.user = @user
+    if @task.save
+      redirect_to task_path(@task)
+    else
+      render 'tasks/edit'
+    end
+    
   end
 
   def destroy

@@ -39,9 +39,15 @@
         <% @tasks.each do |task| %>
           <%= link_to task_path(task) do %>
           <%= '<div class="card mb-4" style="width: 14rem;">'.html_safe %>
-            <div>
-              <img class='card-img-top' src="https://images.unsplash.com/3/doctype-hi-res.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1046&q=80" alt="">
-            </div>
+          
+            <% if (task.photo != nil) %>
+                <div class="card-img-top" style="url('<%= cl_image_path task.photo.key, crop: :fill %>')"> 
+                </div>
+            <% else %>
+                <div>
+                  <img class='card-img-top' src="https://images.unsplash.com/3/doctype-hi-res.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1046&q=80" alt="">
+                </div>
+            <% end %>
 
             <%= '<div class="card-body">'.html_safe %>
               <h5 class="card-title"> <%= task.title %> </h5>
