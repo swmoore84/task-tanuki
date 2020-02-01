@@ -12,6 +12,10 @@ Rails.application.routes.draw do
 
   get 'tasks/:id/offers', to: 'offers#success', as: 'offers_success'
 
+  patch 'offers/:id/accept', to: 'offers#accept_offer', as: 'accept_offer'
+
+  patch 'offers/:id/complete', to: 'offers#mark_complete', as: 'mark_complete'
+
   get 'dashboard', to: 'pages#dashboard'
 
   get 'tasks/:id', to: 'tasks#show', as: 'task'
@@ -19,4 +23,6 @@ Rails.application.routes.draw do
   get 'tasks/:id/edit', to: 'tasks#edit'
 
   patch 'tasks/:id', to: 'tasks#update'
+
+  delete 'tasks/:id', to: 'tasks#destroy'
 end

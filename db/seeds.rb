@@ -79,11 +79,9 @@ end
 puts "Tasks created..."
 
 
-puts 'Creating users...'
+puts 'Creating offers...'
 
 offer1 = Offer.new(user: user2, task: Task.first)
 offer2 = Offer.new(user: user3, task: Task.first)
-offer3 = Offer.new(user: user4, task: Task.first)
 offer1.save!
 offer2.save!
-offer3.save!
