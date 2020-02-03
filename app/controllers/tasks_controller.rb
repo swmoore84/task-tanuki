@@ -26,7 +26,7 @@ class TasksController < ApplicationController
     end
   end
 
-  def update
+  def update  
   end
 
   def destroy
@@ -41,6 +41,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :category, :description, :price, :remote_job, :location, :due_date)
+    params.require(:task).permit(:title, :category, :description, :price, :remote_job, :location, :due_date, :photo)
   end
 end
