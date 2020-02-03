@@ -1,0 +1,53 @@
+.home-banner {
+  background-image: url('boxes.jpg');
+  background-size: cover;
+  height: 100vh;
+  padding-top: 20vh;
+}
+
+.welcome-card {
+  border-radius: 4px;
+  background-color: rgba(0,0,0,.4);
+  box-shadow: none;
+  margin-left: 10vw;
+  width: 450px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  // justify-content: center;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#welcome-header {
+  font-size: 2rem;
+  color: white;
+  font-family: 'Lato', sans-serif;
+  // color: #242A30;
+}
+
+#welcome-message {
+  margin-top: .5rem;
+  font-size: 1rem;
+  color: white;
+  // color: #242A30;
+  font-family: 'Raleway', sans-serif;
+  font-style: light;
+}
+
+#welcome-btns {
+  margin-top: 25px;
+  width: 200px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#welcome-tanuki {
+  height: 200px;
+  margin: 25px;
+}
+
+#welcome-others {
+  display: flex;
+  justify-content: center;
+}

@@ -13,8 +13,6 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Task.find(params[:id])
-    @user = current_user
   end
 
   def create
@@ -28,19 +26,16 @@ class TasksController < ApplicationController
     end
   end
 
-  def update
-    @task = Task.new(task_params)
-    @user = current_user
-    @task.user = @user
-    if @task.save
-      redirect_to task_path(@task)
-    else
-      render 'tasks/edit'
-    end
-    
+  def update  
   end
 
   def destroy
+    @task = Task.find(params[:id])
+    @task.offers.where(status: "pending").each do |offer|
+      offer.update(status: "declined")
+    end
+    @task.destroy
+    redirect_to dashboard_path
   end
 
   private

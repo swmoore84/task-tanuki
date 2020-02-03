@@ -12,6 +12,25 @@ class OffersController < ApplicationController
     end
   end
 
+  def edit
+    @offer = Offer.find(params[:id])
+  end
+
+  def accept_offer
+    @offer = Offer.find(params[:id])
+    @offer.update(status: "active")
+    @offer.task.offers.where(status: "pending").each do |offer|
+      offer.update(status: "declined")
+    end
+    redirect_to dashboard_path
+  end
+
+  def mark_complete
+    @offer = Offer.find(params[:id])
+    @offer.update(status: "complete")
+    redirect_to dashboard_path
+  end
+
   def success
   end
 
