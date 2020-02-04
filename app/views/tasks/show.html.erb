@@ -39,7 +39,16 @@
 
     </div>
     <div class='col-6 card-img-big-holder' style="height: 350px;">
-      <img class='card-img-big' src="https://images.unsplash.com/3/doctype-hi-res.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1046&q=80" alt="">
+
+      <% if @task.photo.attached? %>
+                <div class="card-img-big" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @task.photo.key, height: 300, width: 400, crop: :fill %>')" >
+                </div>
+            <% else %>
+                <div>
+                  <img class='card-img-big' src="https://images.unsplash.com/3/doctype-hi-res.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1046&q=80" alt="">
+                </div>
+            <% end %>
+      
     </div>
   </div>
   <div class="row mt-4 mb-5 d-flex justify-content-center align-items-center">

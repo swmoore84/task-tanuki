@@ -4,7 +4,22 @@
 @import "navbar";
 @import 'card';
 @import 'button';
+@import 'banner';
+@import 'footer';
 
 body {
   background-color: white;
+}
+
+#welcome-img {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  object-position: top;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #323232;
+  font-family: 'Lato', sans-serif;
 }

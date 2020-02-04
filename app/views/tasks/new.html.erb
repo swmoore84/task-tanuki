@@ -11,6 +11,7 @@
         <%= f.input :remote_job, as: :radio_buttons %>
         <%= f.input :location %>
         <%= f.input :due_date %>
+        <%= f.input :photo, as: :file %>
         <div class="row mt-4 d-flex justify-content-around">
           <%= f.button :submit, { class: "btn btn-primary" } %>
           <%= link_to "Back to home", home_path, { class: "btn btn-primary" } %>

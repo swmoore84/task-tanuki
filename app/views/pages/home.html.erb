@@ -1,59 +1,47 @@
-<div class="container">
-  <div class="row mt-5">
-    <div class="col-4">
-      <div class="card sticky-top">
-        <div class="card-body d-flex flex-column align-items-center">
-          <div class="row d-flex justify-content-center mt-2">
-            <% if user_signed_in? %>
-              <% if current_user.photo.attached? %>
-                <%= cl_image_tag(current_user.photo.key, :aspect_ratio=>"1:1", :border=>"5px_solid_rgb:ff0000", :gravity=>"face", :radius=>"max", :width=>150, :crop=>"fill") %>
-              <% else %>
-                <div class="avatar" id="tanuki"></div>
-              <% end %>
-              <div class="row my-2">
-                <div class="card-title" id="welcome">Welcome, <%= (current_user.email) %>!</div>
-              </div>
-              <div class="card-text mx-3">Welcome to <strong>Task Tanuki</strong>, the place to get your tasks done! </div>
-              <div class="row my-3 d-flex flex-column justify-content-around" style="height: 100px;">
-                <%= link_to '<i class="fas fa-plus"></i>&nbsp&nbspPost a Task!'.html_safe, new_task_path, { class: "btn" } %>
-                <%= link_to "Dashboard", dashboard_path, { class: "btn" } %>
-              </div>
-            <% else %>
-              <div class="row d-flex flex-column align-items-center">
-                <div class="card-title mb-3" id="welcome">Welcome to Task Tanuki!</div>
-                <%= image_tag "tanuki_icon.svg" %>
-                <div class="row d-flex justify-content-around mt-3">
-                <%= link_to "New User", new_user_registration_path, { class: "btn mr-2" } %>
-                <%= link_to "Login", new_user_session_path, class: "btn ml-2" %>
-                </div>
-              </div>
-            <% end %>
-          </div>
-        </div>
-      </div>
+<div class="home-banner">
+  <div class="welcome-card">
+    <div id="welcome-header">Get help with your tasks, or help others with theirs</div>
+    <!-- <div id="welcome-message">Get help from our community for tasks you can't manage on your own.</div> -->
+    <div id="welcome-btns">
+      <% if user_signed_in? %>
+        <%= link_to "Visit your dashboard!", dashboard_path, class: "btn" %>
+      <% else %>
+        <%= link_to "Sign up now!", new_user_registration_path, class: "btn" %>
+        <%#= link_to "Login", new_user_session_path, class: "btn" %>
+      <% end %>
     </div>
-
-<!-- This is a loop to create the cards for each task -->
-
-    <div class="col-8 d-flex flex-wrap justify-content-around">
-        <% @tasks.each do |task| %>
-          <%= link_to task_path(task) do %>
-          <%= '<div class="card mb-4" style="width: 14rem;">'.html_safe %>
-            <div>
-              <img class='card-img-top' src="https://images.unsplash.com/3/doctype-hi-res.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1046&q=80" alt="">
-            </div>
-
-            <%= '<div class="card-body">'.html_safe %>
-              <h5 class="card-title"> <%= task.title %> </h5>
-              <p class="card-text"> <%= task.description[0..50] %>... </p>
-            <%= '</div>'.html_safe %>
-          <%= '</div>'.html_safe %>
-          <% end %>
-        <% end %>
-    </div>
-
-
   </div>
+    <%#= image_tag "tanuki_icon.svg", alt: "alttext", id: 'welcome-tanuki' %>
 </div>
 
 
+<!-- This is a loop to create the cards for each task -->
+<div class="my-5" id="welcome-others"><h1>See what others are doing</h1></div>
+<div class="container">
+  <div class="col-12 d-flex flex-wrap justify-content-around">
+    <% @tasks[0..11].each do |task| %>
+      <%= link_to task_path(task), class: "text-decoration-none" do %>
+      <%= '<div class="card mb-4" style="width: 14rem;">'.html_safe %>
+        
+         <% if task.photo.attached? %>
+                <div class="card-img-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path task.photo.key, width: 222, height: 150, crop: :thumb %>')" alt="">
+                </div>
+            <% else %>
+                <div>
+                  <img class='card-img-top' src="https://images.unsplash.com/3/doctype-hi-res.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1046&q=80" alt="">
+                </div>
+            <% end %>
+            
+        <%= '<div class="card-body">'.html_safe %>
+          <h5 class="card-title" style="text-decoration: none;"> <%= task.title %> </h5>
+          <p class="card-text"> <%= task.description[0..50] %>... </p>
+        <%= '</div>'.html_safe %>
+      <%= '</div>'.html_safe %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="footer">
+  <p>Here is the footer</p>
+</div>
