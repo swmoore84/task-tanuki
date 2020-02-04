@@ -8,6 +8,15 @@ Rails.application.routes.draw do
 
   post 'tasks', to: 'tasks#create'
 
+  get 'tasks/:id', to: 'tasks#show', as: 'task'
+
+  get 'tasks/:id/edit', to: 'tasks#edit', as: 'edit_task'
+
+  patch 'tasks/:id', to: 'tasks#update'
+
+  delete 'tasks/:id', to: 'tasks#destroy'
+
+
   post 'tasks/:id/offers', to: 'offers#create', as: 'task_offers'
 
   get 'tasks/:id/offers', to: 'offers#success', as: 'offers_success'
@@ -17,12 +26,4 @@ Rails.application.routes.draw do
   patch 'offers/:id/complete', to: 'offers#mark_complete', as: 'mark_complete'
 
   get 'dashboard', to: 'pages#dashboard'
-
-  get 'tasks/:id', to: 'tasks#show', as: 'task'
-
-  get 'tasks/:id/edit', to: 'tasks#edit'
-
-  patch 'tasks/:id', to: 'tasks#update'
-
-  delete 'tasks/:id', to: 'tasks#destroy'
 end

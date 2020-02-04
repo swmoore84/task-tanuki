@@ -11,9 +11,27 @@
           <p id="show-description"><%= @task.category %></p>
           <p id="show-description"><%= @task.location %></p>
 
-
-          <%= simple_form_for [@task, @offer] do |f| %>
-            <%= f.button :submit, 'Make an Offer!', { class: "btn btn-primary" } %>
+          <% if @task.user == current_user %>
+            <% if @task.offers.empty? %>
+              <%= link_to "Edit task", edit_task_path(@task), class: "btn btn-primary" %>
+              <%= link_to task_path(@task), method: :delete, data: { confirm: "Delete this task?" } do %>
+                    <i class='far fa-trash-alt'></i>
+              <% end %>
+            <% else %>
+              <p>You have <%= pluralize @task.offers.count, "offer" %> for this task</p>
+              <p>View offers in <%= link_to "Dashboard", dashboard_path %> </p>
+            <% end %>
+          <% elsif @task.offers.count > 0 %>
+            <% @task.offers.each do |offer| %>
+              <% if offer.user = current_user %>
+                <p>You have a pending offer on this task</p>
+              <% end %>
+              <break>
+            <% end %>
+          <% else %>
+                <%= simple_form_for [@task, @offer] do |f| %>
+                  <%= f.button :submit, 'Make an Offer!', { class: "btn btn-primary" } %>
+                <% end %>
           <% end %>
 
         </div>
