@@ -19,7 +19,7 @@ category["Translation"] = "https://www.at-languagesolutions.com/en/wp-content/up
 category["Local guides"] = "https://i.gadgets360cdn.com/large/google_maps_full_1574071253835.jpg"
 category["Experiences"] = "https://www.awardstaffing.com/wp-content/uploads/2018/11/Why-You-Need-Have-a-Wide-Range-of-Job-Experiences-in-Minnesota-1030x580.jpg"
 category["Health and Beauty"] = "https://cdn3.f-cdn.com/contestentries/2235/1880497/10714-6282-13186713374e9953e9ec666/Your-Health-and-Beauty01_thumb900.jpg"
-category["Maintenance/repairs"] = "https://d2y1pz2y630308.cloudfront.net/11672/pictures/2015/8/maintenance-and-repair-big.png"
+category["Maintenance"] = "https://d2y1pz2y630308.cloudfront.net/11672/pictures/2015/8/maintenance-and-repair-big.png"
 
 puts 'Cleaning database...'
 Offer.destroy_all
