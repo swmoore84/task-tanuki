@@ -5,12 +5,24 @@
   padding-top: 20vh;
 }
 
+#welcome-logos {
+  display: flex;
+  width: 450px;
+  margin-left: 10vw;
+  justify-content: center;
+}
+
+#welcome-words {
+  width: 400px;
+}
+
 .welcome-card {
   border-radius: 4px;
   background-color: rgba(0,0,0,.4);
   box-shadow: none;
   margin-left: 10vw;
   width: 450px;
+  height: 225px;
   padding: 2rem;
   display: flex;
   flex-direction: column;

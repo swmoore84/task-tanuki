@@ -1,4 +1,7 @@
 <div class="home-banner">
+  <div id="welcome-logos">
+    <%= image_tag "words_logo_outline.svg", alt: "Tast Tanuki", id: "welcome-words" %>
+  </div>
   <div class="welcome-card">
     <div id="welcome-header">Get help with your tasks, or help others with theirs</div>
     <!-- <div id="welcome-message">Get help from our community for tasks you can't manage on your own.</div> -->
@@ -11,7 +14,6 @@
       <% end %>
     </div>
   </div>
-    <%#= image_tag "tanuki_icon.svg", alt: "alttext", id: 'welcome-tanuki' %>
 </div>
 
 
@@ -21,7 +23,7 @@
   <div class="col-12 d-flex flex-wrap justify-content-around">
     <% @tasks[0..11].each do |task| %>
       <%= link_to task_path(task), class: "text-decoration-none" do %>
-      <%= '<div class="card mb-4" style="width: 14rem;">'.html_safe %>
+      <%= '<div class="card mb-4" id="home-card" style="width: 14rem;">'.html_safe %>
 
          <% if task.photo.attached? %>
                 <div class="card-img-top" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path task.photo.key, width: 222, height: 150, crop: :thumb %>')" alt="">
@@ -43,5 +45,5 @@
 </div>
 
 <div class="footer">
-  <p>Here is the footer</p>
+  <%= image_tag "words_logo.svg", alt: "alttext", id: 'footer-tanuki' %>
 </div>

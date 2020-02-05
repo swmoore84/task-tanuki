@@ -1,9 +1,12 @@
 .footer {
-  height: 10vh;
-  border-top: 1px solid rgba(230,230,230,1);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  background-color: white;
-  width: 100vw;
+  justify-content: center;
+  height: 100px;
+  border-top: 1px solid rgba(230,230,230,1);
+  margin-top: 50px;
+}
+
+#footer-tanuki {
+  height: 50px;
 }
