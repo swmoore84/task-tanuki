@@ -1,0 +1,30 @@
+tasks:
+  - user: "sam@gmail.com"
+    title: "Fridge & washing machine lifting"
+    description: "I have a new double sided fridge freezer & cannot lift off packaging base. Also remove & fit 8kg front loader washing machine"
+    category: "Housework"
+    remote_job: false
+
+  - user: "sam@gmail.com"
+    title: "Need Facebook Marketplace to Post Products"
+    description: "hi, i want fb marketplace that i can post my products on. i will need to take over it. if you have facebook marketplace that i can use please message below. i need your spare fb account. thank you"
+    category: "Other"
+    remote_job: false
+
+  - user: "sam@gmail.com"
+    title: "Professional resume and cover letter writers"
+    description: "I need someone who has qualify in professional resume and cover letters edited for a retail company"
+    category: "Education"
+    remote_job: true
+
+  - user: "sam@gmail.com"
+    title: "Create and design a certificate"
+    description: "I would like someone to help me create a degree certificate"
+    category: "Education"
+    remote_job: false
+
+  - user: "sam@gmail.com"
+    title: "Instagram comments"
+    description: "Comment on at least two posts from 3-4 different accounts must be genuine accounts and in Australia"
+    category: "Photography"
+    remote_job: true

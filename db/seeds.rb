@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 require "open-uri"
+require "yaml"
+
+file = "seeds.yml"
+sample = YAML.load(open(File.join(__dir__, file)).read)
 
 category = {}
 category["Education"] = "http://www.lancasterchristianacademy.org/images/systemic-evaluation.jpg"
@@ -28,16 +32,33 @@ User.destroy_all
 
 puts 'Creating users...'
 users = []
-users << User.new(email: "user1@gmail.com", password: "lewagon")
-users << User.new(email: "user2@gmail.com", password: "lewagon")
-users << User.new(email: "user3@gmail.com", password: "lewagon")
-users << User.new(email: "user4@gmail.com", password: "lewagon")
-users << User.new(email: "admin@gmail.com", password: "lewagon")
+users << User.new(email: "sam@gmail.com", password: "lewagon")
+users << User.new(email: "nick@gmail.com", password: "lewagon")
+users << User.new(email: "mohan@gmail.com", password: "lewagon")
 
 puts 'Users created...'
 
 puts 'Creating tasks...'
-users.each do |user|
+
+sample["tasks"].each do |task|
+  file_url = category[task["category"]]
+  task_o = Task.new(
+      user: users[0],
+      description: task["description"],
+      category: task["category"],
+      price: Faker::Number.number(digits: 2),
+      due_date: Faker::Date.in_date_period(month: 2),
+      remote_job: false,
+      location: Faker::Address.street_address,
+      title: task["title"]
+    )
+  puts task_o.category
+  task_o.photo.attach(io: open(file_url), filename: task_o.title, content_type: 'image/png')
+  task_o.save
+end
+
+
+users[1..2].each do |user|
   3.times do |index|
     temp = category.to_a.sample
       task = Task.new(
@@ -63,9 +84,9 @@ puts "Tasks created..."
 
 puts 'Creating offers...'
 
-offer1 = Offer.new(user: users[1], task: Task.first)
-offer2 = Offer.new(user: users[2], task: Task.first)
-offer3 = Offer.new(user: users[3], task: Task.first)
+offer1 = Offer.new(user: users[0], task: Task.first)
+offer2 = Offer.new(user: users[1], task: Task.first)
+offer3 = Offer.new(user: users[2], task: Task.first)
 offer1.save!
 offer2.save!
 offer3.save!
