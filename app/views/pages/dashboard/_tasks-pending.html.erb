@@ -1,0 +1,39 @@
+  <!-- These are the 'Pending' tasks WITH offers -->
+<% current_user.pending_tasks.each do |task| %>
+  <div class="task-holder">
+    <%= link_to task_path(task), class: "text-decoration-none" do %>
+      <div class="task-name" style="text-decoration: none;"><i class="fas fa-chevron-circle-right" id="chevron"></i><%= task.title %>
+    <% end %>
+      <%= link_to task_path(task), method: :delete, data: { confirm: "Delete this task?" }, id: "delete" do %>
+        <i class='far fa-trash-alt'></i>
+      <% end %>
+      </div>
+    <% task.offers.each do |offer| %>
+    <div class="users-holder">
+      <div class="user-name"><i class="fas fa-caret-right"></i>&nbsp&nbsp<%= offer.user.email %> has offered to complete your task.</div>
+      <%= link_to "<i class='fas fa-user-check' id='accept'></i>".html_safe, accept_offer_path(offer), method: :patch %>
+    </div>
+    <% end %>
+  </div>
+<% end %>
+
+  <!-- These are the 'Pending' tasks WITHOUT offers -->
+<% current_user.tasks_without_offers.each do |task| %>
+  <div class="task-holder">
+    <%= link_to task_path(task), class: "text-decoration-none" do %>
+      <div class="task-name" style="text-decoration: none;"><i class="fas fa-chevron-circle-right" id="chevron"></i><%= task.title %>
+    <% end %>
+      <%= link_to task_path(task), method: :delete, data: { confirm: "Delete this task?" }, id: "delete" do %>
+        <i class='far fa-trash-alt'></i>
+      <% end %>
+      </div>
+
+    <div class="users-holder">
+      <div class="user-name"><em>There are no offers for this task.</em></div>
+    </div>
+
+  </div>
+<% end %>
+
+
+

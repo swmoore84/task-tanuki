@@ -1,0 +1,25 @@
+<% if current_user.offers.where(status: "pending").count == 0 %>
+  <%= '<div class="task-holder">'.html_safe %>
+    <%= '<div class="users-holder">'.html_safe %>
+      <%= '<div class="user-name"><em>You have no pending offers.</em></div>'.html_safe %>
+    <%= '</div>'.html_safe %>
+  <%= '</div>'.html_safe %>
+<% end %>
+
+<% current_user.offers.each do |offer| %>
+  <% if offer.status == "pending" %>
+    <div class="task-holder">
+      <%= link_to task_path(offer.task), class: "text-decoration-none" do %>
+        <div class="task-name" style="text-decoration: none;">
+          <i class="fas fa-chevron-circle-right" id="chevron"></i>
+          <%= offer.task.title %>
+        </div>
+      <% end %>
+      <div class="users-holder">
+        <div class="user-name">
+          <i class="fas fa-caret-right"></i>&nbsp&nbspYou are awaiting approval from&nbsp<%= offer.task.user.email %>.
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
