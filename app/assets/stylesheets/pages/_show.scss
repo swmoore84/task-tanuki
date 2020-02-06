@@ -1,0 +1,28 @@
+#show-details {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Nunito Sans';
+  padding: 20px;
+  color: #323232;
+  height: 350px;
+}
+
+#show-title {
+  font-size: 1.5em;
+  color: #323232;
+}
+
+#show-description {
+  font-family: "Nunito Sans";
+}
+
+#change-task {
+  margin-top: 5px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+#show-details-below {
+  margin-left: 20px;
+  margin-bottom: 10px;
+}
