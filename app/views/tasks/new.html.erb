@@ -1,23 +1,27 @@
 <div class="container">
-  <div class="card col-6 d-flex mx-auto my-5">
-<!--     <div class="align-items-center justify-content-center"> -->
-    <div class="card-body">
-      <h3 class="card-title d-flex justify-content-center">Post a new task!</h3>
-      <%= simple_form_for [@task] do |f| %>
-        <%= f.input :title, label: 'Title', error: 'Please enter a title' %>
-        <%= f.input :category, collection: ["Education", "Housework", "Moving", "Other", "Photography", "Shopping", "Translation",
-         "Local guides", "Experiences", "Health and Beauty", "Maintenance"], label: 'Category', error: 'Please select a category' %>
-        <%= f.input :description, label: 'Description', error: 'Please enter a description' %>
-        <%= f.input :price, label: 'Price', error: 'Please enter a price' %>
-        <%= f.input :remote_job, as: :radio_buttons %>
-        <%= f.input :location %>
-        <%= f.input :due_date %>
-        <%= f.input :photo, as: :file %>
-        <div class="row mt-4 d-flex justify-content-around">
-          <%= f.button :submit, { class: "btn btn-primary btn-sm" } %>
-          <%= link_to "Back to home", home_path(:anchor => "welcome-others"), { class: "btn btn-primary btn-sm" } %>
-        </div>
-      <% end %>
+  <div id="main-contain">
+    <%= link_to "<i class='fas fa-chevron-left'></i>".html_safe, home_path(:anchor => "welcome-others"), id: "back" %>
+    <div class="card col-6 d-flex">
+  <!--     <div class="align-items-center justify-content-center"> -->
+      <div class="card-body" id="task-new">
+        <div class="row" id="task-new-title">Post a new task!</div>
+        <%= simple_form_for [@task] do |f| %>
+          <%= f.input :title, label: 'Title', error: 'Please enter a title' %>
+          <%= f.input :category, collection: ["Education", "Housework", "Moving", "Other", "Photography", "Shopping", "Translation",
+           "Local guides", "Experiences", "Health and Beauty", "Maintenance"], label: 'Category', error: 'Please select a category' %>
+          <%= f.input :description, label: 'Description', error: 'Please enter a description' %>
+          <%= f.input :price, label: 'Price', error: 'Please enter a price' %>
+          <%= f.input :remote_job, as: :radio_buttons %>
+          <%= f.input :location %>
+          <%= f.input :due_date %>
+          <%= f.input :photo, as: :file %>
+          <div class="row mt-4 d-flex justify-content-around">
+            <%= f.button :submit, { class: "btn btn-primary" } %>
+          </div>
+        <% end %>
+      </div>
     </div>
+    <%= link_to "<i class='fas fa-chevron-right'></i>".html_safe, home_path(:anchor => "welcome-others"), id: "forward" %>
   </div>
+
 </div>
