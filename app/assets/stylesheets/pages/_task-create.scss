@@ -1,0 +1,41 @@
+#main-contain {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin: 10vh 0vh;
+}
+
+#task-new {
+  font-family: 'Nunito Sans';
+  font-size: 14px;
+}
+
+#task-new-title {
+  display: flex;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  color: #323232;
+  font-weight: bold;
+}
+
+#back {
+  color: #60C285;
+  font-size: 48px;
+  margin-left: 10vw;
+}
+
+#back:hover {
+  opacity: 50%;
+}
+
+#forward {
+  color: #60C285;
+  font-size: 48px;
+  margin-right: 10vw;
+  visibility: hidden;
+}
+
+#forward:hover {
+  opacity: 50%;
+}
