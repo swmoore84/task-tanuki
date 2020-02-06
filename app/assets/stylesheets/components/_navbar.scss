@@ -62,3 +62,20 @@
   border: white;
   color: #2CC185;
 }
+
+#navbar-btn-post {
+  text-decoration: none;
+  visibility: visible;
+  color: #60C285;
+  border: 1px solid #60C285;
+  background-color: transparent;
+  opacity: 1;
+  // color: #2CC185;
+}
+
+#navbar-btn-post:hover {
+  border: white;
+  color: #2CC185;
+  opacity: 0.6;
+  border: 1px solid #60C285;
+}
