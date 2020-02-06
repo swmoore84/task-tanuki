@@ -1,0 +1,148 @@
+
+.content{
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin: 50px auto;
+  font-family: 'Nunito Sans'
+}
+
+.nav-pills{
+  display: flex;
+  justify-content: space-around;
+  width: 900px;
+}
+
+.nav-item{
+  width: 20%;
+}
+
+.nav-pills .nav-link{
+  padding-top: 1rem;
+  text-align: center;
+  background: #F4F4F4;
+  color: #495057;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  height: 50px;
+}
+
+.nav-pills .nav-link.active{
+  font-weight: bold;
+  background: #60C285;
+  color: #fff;
+}
+
+#outer-card{
+  position: absolute;
+  border-radius: 5px;
+  border: 1px solid rgba(230,230,230,1);
+  width: 900px;
+  height: 600px;
+  margin-top: 50px;
+  background: #fff;
+  color: #000;
+  z-index: 1000;
+  padding: 30px;
+}
+
+#inner-card{
+  position: absolute;
+  border-radius: 5px;
+  // border: 1px solid rgba(230,230,230,1);
+  width: 800px;
+  height: 500px;
+  // margin-top: 50px;
+  background: #fff;
+  color: #000;
+  z-index: 1000;
+  padding: 30px;
+}
+
+#sub-tabs {
+  font-family: "Nunito Sans";
+}
+
+#inner-tabs {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#inner-tabs li{
+  margin-left: 20px;
+}
+
+.nav-tabs .nav-link{
+  color: #495057;
+  border-radius: 2px;
+  background: #fff;
+  border-bottom: 1px solid rgba(230,230,230,1);
+}
+
+.nav-tabs .nav-link.active{
+  background: #fff;
+  color: #60C285;
+  font-weight: normal;
+}
+
+table {
+  font-family: "Nunito Sans";
+  font-size: 10px;
+  text-decoration: none;
+}
+
+.task-holder {
+  margin-bottom: 40px;
+  padding: 20px 0px;
+  border-top: 1px solid rgba(230,230,230,1);
+  border-bottom: 1px solid rgba(230,230,230,1);
+  color: #495057;
+}
+
+.task-holder a{
+  text-decoration: none;
+  color: #495057;
+}
+
+.task-name {
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+#chevron {
+  margin-right: 20px;
+}
+
+#delete {
+  margin-left: 20px;
+  color: red;
+}
+
+#delete:hover {
+  opacity: 50%;
+}
+
+#accept {
+  margin-left: 20px;
+}
+
+#accept:hover {
+  color: #60C285;
+}
+
+#complete {
+  margin-left: 40px;
+}
+
+#complete:hover {
+  color: #60C285;
+}
+
+.users-holder {
+  display: flex;
+  margin: 10px 40px;
+}
+
+.user-name {
+  margin-right: 40px;
+}
