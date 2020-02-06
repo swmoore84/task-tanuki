@@ -1,11 +1,8 @@
 <div class="container">
-  <div class="card col-4 d-flex mx-auto mt-5">
-<!--     <div class="align-items-center justify-content-center"> -->
-    <div class="card-body d-flex flex-column align-items-center">
-      <h1>Success!</h1>
-      <%= image_tag "tanuki_icon.svg" %>
-      <p>Under Construction</p>
-      <h4>(You are in offers#success)</h4>
-      <div class="row"><%= link_to "Back to home", home_path, { class: "btn btn-outline-primary btn-sm" } %></div>
+  <div class="card col-4 mx-auto" id="success-card">
+    <div class="card-body" id="success-card-body">
+      <div class="row"><%#= image_tag "tanuki_icon.svg", alt: "tanuki", id: 'success-tanuki' %></div>
+      <div class="row my-2" style="text-align: center"><h3>Your offer has been submitted!</h3></div>
+      <div class="row"><%= link_to "Find another task", home_path(:anchor => "welcome-others"), { class: "btn btn-primary" } %></div>
     </div>
 </div>

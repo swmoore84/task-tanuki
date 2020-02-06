@@ -14,8 +14,8 @@
         <%= f.input :due_date %>
         <%= f.input :photo, as: :file %>
         <div class="row mt-4 d-flex justify-content-around">
-          <%= f.button :submit, { class: "btn btn-primary" } %>
-          <%= link_to "Back to home", home_path, { class: "btn btn-primary" } %>
+          <%= f.button :submit, { class: "btn btn-primary btn-sm" } %>
+          <%= link_to "Back to home", home_path(:anchor => "welcome-others"), { class: "btn btn-primary btn-sm" } %>
         </div>
       <% end %>
     </div>
