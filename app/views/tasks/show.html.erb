@@ -11,7 +11,7 @@
 
           <% if @task.user == current_user %>
             <% if @task.offers.empty? %>
-              <%= link_to "Edit task", edit_task_path(@task), class: "btn btn-primary" %>
+              <%= link_to "Edit task", edit_task_path(@task), class: "btn btn-primary btn-sm" %>
               <%= link_to task_path(@task), method: :delete, data: { confirm: "Delete this task?" } do %>
                 <i class='far fa-trash-alt'></i>
               <% end %>
@@ -27,13 +27,13 @@
                   <% break %>
                 <% else %>
                   <%= simple_form_for [@task, @offer] do |f| %>
-                    <%= f.button :submit, 'Make an Offer!', { class: "btn btn-primary" } %>
+                    <%= f.button :submit, 'Make an Offer!', { class: "btn btn-primary btn-sm" } %>
                   <% end %>
                 <% end %>
               <% end %>
             <% else %>
               <%= simple_form_for [@task, @offer] do |f| %>
-                <%= f.button :submit, 'Make an Offer!', { class: "btn btn-primary" } %>
+                <%= f.button :submit, 'Make an Offer!', { class: "btn btn-primary btn-sm" } %>
               <% end %>
             <% end %>
           <% end %>
