@@ -83,8 +83,6 @@ puts "Tasks created..."
 
 
 puts 'Creating offers...'
-
-
 offer2 = Offer.new(user: users[1], task: Task.first)
 offer3 = Offer.new(user: users[2], task: Task.first)
 offer1.save!
